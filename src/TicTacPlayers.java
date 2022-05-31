@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-
 /**
  *
  * @author Umesh
@@ -128,17 +127,19 @@ public class TicTacPlayers extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         // TODO add your handling code here:   
         new TicTacToeGame().playSound3();
-        if (player1name.getText() == "" || player2name.getText() == "") {
-            System.out.println("helo");
-            message.setText("Please enter both players name");
+        System.out.println("$" + player1name.getText() + "$");
+        if (player1name.getText().equals("") || player2name.getText().equals("")) {
             TicTacToeGame tictac = new TicTacToeGame();
             tictac.setVisible(false);
+            this.dispose();
+            message.setText("Please enter both players name");
             new TicTacPlayers().setVisible(true);
+            
 
         } else {
             TicTacToeGame tictac = new TicTacToeGame();
             tictac.player1label.setText(player1name.getText());
-            tictac.player2label.setText(player2name.getText());            
+            tictac.player2label.setText(player2name.getText());
             if (tictac.currentplayer == "X") {
                 tictac.display.setText(tictac.player1label.getText() + ", Your turn for -> '" + tictac.currentplayer + "'.");
             } else {

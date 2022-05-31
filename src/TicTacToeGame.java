@@ -4,9 +4,6 @@
  */
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import javax.swing.JOptionPane;
 import java.util.Random;
 import javax.sound.sampled.AudioSystem;
@@ -979,7 +976,7 @@ public class TicTacToeGame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new TicTacToeGame().setVisible(true);
+                new TicTacToeGame().setVisible(true);
                 new TicTacToeGame().selectPlayer();
                 displayFrame2();
             }
