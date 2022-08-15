@@ -16,7 +16,6 @@ import javax.sound.sampled.Clip;
 public class TicTacToeGame extends javax.swing.JFrame {
 
     static String currentplayer = "X";
-    TicTacToeGame fr;
 
     /**
      * Creates new form TicTacToeGame
@@ -421,10 +420,10 @@ public class TicTacToeGame extends javax.swing.JFrame {
             soundWin();
             if (currentplayer == "X") {
                 display.setText("Hurray! '" + player1label.getText() + "' -> '" + currentplayer + "' won this game.");
-                JOptionPane.showMessageDialog(fr, "Hurray! '" + player1label.getText() + "' -> '" + currentplayer + "' has won this match.");
+                JOptionPane.showMessageDialog(this, "Hurray! '" + player1label.getText() + "' -> '" + currentplayer + "' has won this match.");
             } else {
                 display.setText("Hurray! '" + player2label.getText() + "' -> '" + currentplayer + "' won this game.");
-                JOptionPane.showMessageDialog(fr, "Hurray! '" + player2label.getText() + "' -> '" + currentplayer + "' has won this match.");
+                JOptionPane.showMessageDialog(this, "Hurray! '" + player2label.getText() + "' -> '" + currentplayer + "' has won this match.");
             }
             disableAll();
             enableAll();
@@ -466,7 +465,7 @@ public class TicTacToeGame extends javax.swing.JFrame {
                 display.setText("Ohh! the game is drawn.");
                 soundLost();
                 tie.setText(Integer.toString(Integer.parseInt(tie.getText()) + 1));
-                JOptionPane.showMessageDialog(fr, "Ohh! this game is a tie.");
+                JOptionPane.showMessageDialog(this, "Ohh! this game is a tie.");
                 enableAll();
                 resetBoard();
                 changeCurrentPlayer();
@@ -515,6 +514,8 @@ public class TicTacToeGame extends javax.swing.JFrame {
         resetboard = new javax.swing.JButton();
         player2label1 = new javax.swing.JLabel();
         tie = new javax.swing.JLabel();
+        newplayers = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tic-Tac-Toe Game");
@@ -657,6 +658,15 @@ public class TicTacToeGame extends javax.swing.JFrame {
         tie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tie.setText("0");
 
+        newplayers.setText("New Players");
+        newplayers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newplayersActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Copyright Ⓒ Umesh 2022");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -688,7 +698,8 @@ public class TicTacToeGame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(resetboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(resetall, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(resetall, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(newplayers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
@@ -724,6 +735,9 @@ public class TicTacToeGame extends javax.swing.JFrame {
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -749,27 +763,31 @@ public class TicTacToeGame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(one, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(two, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(three, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(four, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(five, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(six, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(seven, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eight, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nine, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(one, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(two, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(three, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(four, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(five, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(six, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(seven, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eight, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nine, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(newplayers)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(resetboard)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(resetall)
                         .addGap(1, 1, 1)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jLabel7))
         );
 
         display.getAccessibleContext().setAccessibleName("");
@@ -944,6 +962,13 @@ public class TicTacToeGame extends javax.swing.JFrame {
         enableAll();
     }//GEN-LAST:event_resetboardActionPerformed
 
+    private void newplayersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newplayersActionPerformed
+        // TODO add your handling code here:
+        playSound3();
+        displayFrame2();
+        this.dispose();
+    }//GEN-LAST:event_newplayersActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -976,7 +1001,8 @@ public class TicTacToeGame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TicTacToeGame().setVisible(true);
+//                new TicTacToeGame().setVisible(true);
+                new TicTacToeGame().setEnabled(false);
                 new TicTacToeGame().selectPlayer();
                 displayFrame2();
             }
@@ -989,8 +1015,10 @@ public class TicTacToeGame extends javax.swing.JFrame {
     private javax.swing.JButton eight;
     private javax.swing.JButton five;
     private javax.swing.JButton four;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton newplayers;
     private javax.swing.JButton nine;
     private javax.swing.JButton one;
     public javax.swing.JLabel player1label;
